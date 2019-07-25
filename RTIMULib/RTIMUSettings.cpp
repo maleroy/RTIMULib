@@ -156,21 +156,12 @@ bool RTIMUSettings::discoverIMU(int& imuType, bool& busIsI2C, unsigned char& sla
                     }
                 }
             } else if (result == LSM9DS1_ID) {
-                if (HALRead(LSM9DS1_MAG_ADDRESS0, LSM9DS1_MAG_WHO_AM_I, 1, &altResult, "")) {
+                if (HALRead(LSM9DS1_MAG_ADDRESS3, LSM9DS1_MAG_WHO_AM_I, 1, &altResult, "")) {
                     if (altResult == LSM9DS1_MAG_ID) {
                         imuType = RTIMU_TYPE_LSM9DS1;
                         slaveAddress = LSM9DS1_ADDRESS0;
                         busIsI2C = true;
-                        HAL_INFO("Detected LSM9DS1 at standard/standard address\n");
-                        return true;
-                    }
-                }
-                if (HALRead(LSM9DS1_MAG_ADDRESS1, LSM9DS1_MAG_WHO_AM_I, 1, &altResult, "")) {
-                    if (altResult == LSM9DS1_MAG_ID) {
-                        imuType = RTIMU_TYPE_LSM9DS1;
-                        slaveAddress = LSM9DS1_ADDRESS0;
-                        busIsI2C = true;
-                        HAL_INFO("Detected LSM9DS1 at standard/option 1 address\n");
+                        HAL_INFO("Detected LSM9DS1 at standard/option 3 address\n");
                         return true;
                     }
                 }
@@ -183,12 +174,21 @@ bool RTIMUSettings::discoverIMU(int& imuType, bool& busIsI2C, unsigned char& sla
                         return true;
                     }
                 }
-                if (HALRead(LSM9DS1_MAG_ADDRESS3, LSM9DS1_MAG_WHO_AM_I, 1, &altResult, "")) {
+                if (HALRead(LSM9DS1_MAG_ADDRESS1, LSM9DS1_MAG_WHO_AM_I, 1, &altResult, "")) {
                     if (altResult == LSM9DS1_MAG_ID) {
                         imuType = RTIMU_TYPE_LSM9DS1;
                         slaveAddress = LSM9DS1_ADDRESS0;
                         busIsI2C = true;
-                        HAL_INFO("Detected LSM9DS1 at standard/option 3 address\n");
+                        HAL_INFO("Detected LSM9DS1 at standard/option 1 address\n");
+                        return true;
+                    }
+                }
+                if (HALRead(LSM9DS1_MAG_ADDRESS0, LSM9DS1_MAG_WHO_AM_I, 1, &altResult, "")) {
+                    if (altResult == LSM9DS1_MAG_ID) {
+                        imuType = RTIMU_TYPE_LSM9DS1;
+                        slaveAddress = LSM9DS1_ADDRESS0;
+                        busIsI2C = true;
+                        HAL_INFO("Detected LSM9DS1 at standard/standard address\n");
                         return true;
                     }
                 }
@@ -242,21 +242,12 @@ bool RTIMUSettings::discoverIMU(int& imuType, bool& busIsI2C, unsigned char& sla
                     }
                 }
             } else if (result == LSM9DS1_ID) {
-                if (HALRead(LSM9DS1_MAG_ADDRESS0, LSM9DS1_MAG_WHO_AM_I, 1, &altResult, "")) {
+                if (HALRead(LSM9DS1_MAG_ADDRESS3, LSM9DS1_MAG_WHO_AM_I, 1, &altResult, "")) {
                     if (altResult == LSM9DS1_MAG_ID) {
                         imuType = RTIMU_TYPE_LSM9DS1;
                         slaveAddress = LSM9DS1_ADDRESS1;
                         busIsI2C = true;
-                        HAL_INFO("Detected LSM9DS1 at option/standard address\n");
-                        return true;
-                    }
-                }
-                if (HALRead(LSM9DS1_MAG_ADDRESS1, LSM9DS1_MAG_WHO_AM_I, 1, &altResult, "")) {
-                    if (altResult == LSM9DS1_MAG_ID) {
-                        imuType = RTIMU_TYPE_LSM9DS1;
-                        slaveAddress = LSM9DS1_ADDRESS1;
-                        busIsI2C = true;
-                        HAL_INFO("Detected LSM9DS1 at option/option 1 address\n");
+                        HAL_INFO("Detected LSM9DS1 at option/option 3 address\n");
                         return true;
                     }
                 }
@@ -269,12 +260,21 @@ bool RTIMUSettings::discoverIMU(int& imuType, bool& busIsI2C, unsigned char& sla
                         return true;
                     }
                 }
-                if (HALRead(LSM9DS1_MAG_ADDRESS3, LSM9DS1_MAG_WHO_AM_I, 1, &altResult, "")) {
+                if (HALRead(LSM9DS1_MAG_ADDRESS1, LSM9DS1_MAG_WHO_AM_I, 1, &altResult, "")) {
                     if (altResult == LSM9DS1_MAG_ID) {
                         imuType = RTIMU_TYPE_LSM9DS1;
                         slaveAddress = LSM9DS1_ADDRESS1;
                         busIsI2C = true;
-                        HAL_INFO("Detected LSM9DS1 at option/option 3 address\n");
+                        HAL_INFO("Detected LSM9DS1 at option/option 1 address\n");
+                        return true;
+                    }
+                }
+                if (HALRead(LSM9DS1_MAG_ADDRESS0, LSM9DS1_MAG_WHO_AM_I, 1, &altResult, "")) {
+                    if (altResult == LSM9DS1_MAG_ID) {
+                        imuType = RTIMU_TYPE_LSM9DS1;
+                        slaveAddress = LSM9DS1_ADDRESS1;
+                        busIsI2C = true;
+                        HAL_INFO("Detected LSM9DS1 at option/standard address\n");
                         return true;
                     }
                 }
