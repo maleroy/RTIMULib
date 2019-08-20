@@ -36,9 +36,9 @@ while True:
     if imu.IMURead():
         data = imu.getIMUData()
         fusionPose = data["fusionPose"]
-    sys.stdout.write("\rr: {:+8.3f} p: {:+8.3f} y: {:+8.3f}".format(
-        math.degrees(fusionPose[0]),
-        math.degrees(fusionPose[1]),
-        math.degrees(fusionPose[2])))
-    sys.stdout.flush()
-    time.sleep(poll_interval*1.0/1000.0)
+        sys.stdout.write("\rr: {:+8.3f} p: {:+8.3f} y: {:+8.3f}".format(
+            math.degrees(fusionPose[0]),
+            math.degrees(fusionPose[1]),
+            math.degrees(fusionPose[2])))
+        sys.stdout.flush()
+        time.sleep(poll_interval*1.0/1000.0)
